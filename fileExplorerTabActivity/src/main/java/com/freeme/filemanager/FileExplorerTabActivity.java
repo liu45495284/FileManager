@@ -166,7 +166,7 @@ public class FileExplorerTabActivity extends BaseActivity implements IActionMode
            savedInstanceState.remove("android:fragments");
         }
         //*/
-        Log.i("liuhaoran" , "oncreate");
+        Log.i("liuhaoran" , "oncreate ");
         super.onCreate(savedInstanceState);
 
         mContext = this;
