@@ -220,7 +220,7 @@
     <string name="operation_hotknot">HotKnot</string>
     <string name="turn_on_hotknot">"HotKnot已經關閉.請在設置頁面打開HotKnot"</string>
     <string name="hotknot_toast">"請用屏幕碰觸其他設備"</string>
-    <string name="decompress_failed_for_nofile">停止壓縮，壓縮文件为空文件夾</string>
+    <string name="decompress_failed_for_nofile">停止解壓縮，壓縮文件为空文件夾</string>
     <string name="cancel_option_note">取消操作進行中，請稍候。</string>
     <string name="load_data">正在加载数据...</string>
     <string name="interior_info_storage">内部存储</string>
