@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        <string name="freemeabout">Sur</string>
+        <string name="freemeabout_current_version">Version actuelle</string>
+        <string name="freemeabout_official_website">Official Website</string>
+        <string name="freemeabout_official_forum">Official forum</string>
+        <string name="freemeabout_official_website_value">www.freemeos.com</string>
+        <string name="freemeabout_official_forum_value">http://bbs.droi.com</string>
+        <string name="freemeabout_copy_right">Shanghai Droi Technology Co., Ltd.</string>
+        <string name="freemeabout_droi">droits d\'auteur©2016, Droi .Tous les droits sont réservés</string>
+        <string name="freemeabout_detail_msg">Détails</string>
+        <string name="freemeabout_channel_number">Le numéro de canal</string>
+        <string name="freemeabout_customer_number">Numéro de client</string>
+        <string name="freemeabout_click_times">Toujours besoin de cliquer </string>
+        <string name="freemeabout_click_intent">Temps d\'interface pour sauter aux informations détaillées pour vous</string>
+</resources>
