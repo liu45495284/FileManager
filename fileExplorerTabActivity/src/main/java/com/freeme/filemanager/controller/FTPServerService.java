@@ -124,10 +124,8 @@ public class FTPServerService extends Service implements Runnable {
         myLog.l(Log.DEBUG, "SwiFTP server created");
         // Set the application-wide context global, if not already set
         Context myContext = Globals.getContext();
-        Log.i("liuhaoran", "onCreate ----- myContext" + myContext);
         if (myContext == null) {
             myContext = getApplicationContext();
-            Log.i("liuhaoran", "onCreate ----- myContext222=" + myContext);
             if (myContext != null) {
                 Globals.setContext(myContext);
             }

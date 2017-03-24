@@ -197,7 +197,6 @@ public class FileViewInteractionHub implements IOperationProgressListener, IPath
 
     public void showLoadingProgress(String str_title, String str_msg, boolean showCancelButton) {
         if (showCancelButton) {
-            Log.i("liuhaoran", "showLoadingProgress.show");
             progressDialog = new ProgressDialog(mContext);
             progressDialog.setTitle(str_title);
             progressDialog.setMessage(str_msg);
@@ -205,7 +204,6 @@ public class FileViewInteractionHub implements IOperationProgressListener, IPath
             progressDialog.setCancelable(false);
             progressDialog.show();
         }else {
-            Log.i("liuhaoran", "showLoadingProgress.dismiss");
             progressDialog.dismiss();
         }
     }

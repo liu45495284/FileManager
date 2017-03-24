@@ -173,7 +173,7 @@ public class FileExplorerTabActivity extends BaseActivity implements IActionMode
 
         MobclickAgent.setDebugMode(true);
         MobclickAgent.openActivityDurationTrack(false);
-        MobclickAgent.startWithConfigure(new UMAnalyticsConfig(mContext, "57dfa18e67e58e7d2b003625","droi", EScenarioType.E_UM_ANALYTICS_OEM,false));
+        MobclickAgent.startWithConfigure(new UMAnalyticsConfig(mContext, "57dfa18e67e58e7d2b003625","hwdroi", EScenarioType.E_UM_ANALYTICS_OEM,false));
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN);
         StorageHelper.getInstance(this).setCurrentMountPoint(Environment.getExternalStorageDirectory().getPath());

@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
 
-def UPDATESELF_REQUEST_URL_OFFICIAL = "http://update-newspage.oo523.com:2520"
+def UPDATESELF_REQUEST_URL_OFFICIAL = "http://update-osmarket.dd351.com:2520"
 
 //http://update-osmarket.dd351.com:2520 oversea
 //http://update-newspage.oo523.com:2520 native
@@ -89,7 +89,7 @@ dependencies {
     compile files('libs/org.apache.httpcomponents.httpcore_4.4.4.jar')
     compile 'com.android.support:support-v13:24.1.1'
     compile 'com.umeng.analytics:analytics:latest.integration'
-    compile 'com.droi.sdk:Core:1.0.3428'
+    compile 'com.droi.sdk:Core:1.0.3466'
     compile 'com.squareup.okhttp3:okhttp:3.0.1'
     compile 'com.droi.sdk:analytics:+'
     compile 'com.freeme.multimedia:freemeupdate:1.0.21@aar'

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.freeme.filemanager"
     android:versionCode="206"
-    android:versionName="2.6.5_206" >
+    android:versionName="2.6.60_206" >
 
     <uses-sdk
         android:minSdkVersion="17"
@@ -173,7 +173,7 @@
             android:value="3QR1PrnzbwGITEj0Qz8JB72PJkEBBXILB72PJkEB" />
         <meta-data
             android:name="com.droi.sdk.channel_name"
-            android:value="droi" />
+            android:value="hwdroi" />
         <meta-data
             android:name="com.droi.sdk.secret_key"
             android:value="afketdrw" />

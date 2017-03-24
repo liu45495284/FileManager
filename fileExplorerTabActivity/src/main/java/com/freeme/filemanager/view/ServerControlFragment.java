@@ -408,7 +408,6 @@ public class ServerControlFragment extends BaseFragment implements IBackPressedL
     @Override
     public void onResume() {
         super.onResume();
-        Log.i("liuhaoran","aaaaaaaaaaaaa");
         DroiAnalytics.onFragmentStart(getActivity(), mPageName);
     }
 
@@ -417,7 +416,6 @@ public class ServerControlFragment extends BaseFragment implements IBackPressedL
     @Override
     public void onPause() {
         super.onPause();
-        Log.i("liuhaoran","bbbbbbbbbbbbb");
         DroiAnalytics.onFragmentEnd(getActivity(), mPageName);
     }
 }

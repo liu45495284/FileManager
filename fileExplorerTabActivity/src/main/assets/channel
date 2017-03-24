@@ -3,12 +3,12 @@
 #td=dewav0000
 
 #oversea
-#cp=hwdroi
-#td=hwdroi001
+cp=hwdroi
+td=hwdroi001
 
 #native
-cp=droi
-td=droi
+#cp=droi
+#td=droi
 
 #cherry
 #cp=cherry

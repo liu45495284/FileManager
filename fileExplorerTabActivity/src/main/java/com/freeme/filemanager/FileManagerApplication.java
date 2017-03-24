@@ -23,6 +23,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.AssetManager;
 import android.os.Handler;
+import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -72,6 +73,13 @@ public class FileManagerApplication extends Application {
         super.onCreate();
         Core.initialize(this);
         DroiAnalytics.initialize(this);
+
+        //*/ freeme.liuhaoran , 20170323. for android N about "android.os.FileUriExposedException"
+        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+        StrictMode.setVmPolicy(builder.build());
+        builder.detectFileUriExposure();
+        //*/
+
         new Thread(new Runnable() {
 
             @Override

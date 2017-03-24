@@ -742,7 +742,7 @@ public class FileViewFragment extends BaseFragment implements IFileInteractionLi
             if (Util.isNormalFile(absolutePath) && Util.shouldShowFile(absolutePath)) {
                 FileInfo lFileInfo = Util.GetFileInfo(child,
                         mFileCagetoryHelper.getFilter(), Settings.instance().getShowDotAndHiddenFiles());
-                if (lFileInfo != null) {
+                if (lFileInfo != null && !lFileInfo.fileName.equals("droi")) {
                     fileList.add(lFileInfo);
                 }
             }
@@ -1120,7 +1120,7 @@ public class FileViewFragment extends BaseFragment implements IFileInteractionLi
                                 mFileCagetoryHelper.getFilter(), Settings
                                         .instance().getShowDotAndHiddenFiles());
 
-                        if (lFileInfo != null) {
+                        if (lFileInfo != null && !lFileInfo.fileName.equals("droi")) {
                             fileLists.add(lFileInfo);
                         }
                     }
