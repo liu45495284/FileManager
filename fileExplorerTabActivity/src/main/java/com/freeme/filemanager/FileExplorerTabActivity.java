@@ -260,10 +260,8 @@ public class FileExplorerTabActivity extends BaseActivity implements IActionMode
         }
         //*/ modify end
 
-
         initButtonReceiver();
 
-        
         UpdateMonitor.Builder
         //*/ init UpdateMonitor
         .getInstance(this)

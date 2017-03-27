@@ -93,6 +93,4 @@ dependencies {
     compile 'com.squareup.okhttp3:okhttp:3.0.1'
     compile 'com.droi.sdk:analytics:+'
     compile 'com.freeme.multimedia:freemeupdate:1.0.21@aar'
-
-
 }

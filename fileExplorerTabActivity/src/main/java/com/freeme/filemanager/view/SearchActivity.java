@@ -73,7 +73,7 @@ public class SearchActivity extends Activity implements
     private ListView mSearchListView;
     private TextView mNoMatch;
     private static final String[] SEARCH_COLUMNS = { "_id", "_data",
-            "mime_type" , "file_name"};
+            "mime_type" };
     private Cursor mCursor = null;
     private String mQuery;
     private SearchFileAdapter mAdapter;

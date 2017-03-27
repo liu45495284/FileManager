@@ -12,7 +12,6 @@ import com.freeme.filemanager.controller.IActionModeCtr;
 import com.freeme.filemanager.controller.IFileInteractionListener;
 import com.freeme.filemanager.model.FileInfo;
 import com.freeme.filemanager.model.GlobalConsts;
-import com.freeme.filemanager.util.FavoriteDatabaseHelper.FavoriteDatabaseListener;
 import com.freeme.filemanager.util.FeatureOption;
 import com.freeme.filemanager.util.FileCategoryHelper;
 import com.freeme.filemanager.util.FileIconHelper;
@@ -54,7 +53,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 public class MenoryInfoFileListActivity extends Activity implements
-        IFileInteractionListener, FavoriteDatabaseListener ,IActionModeCtr{
+        IFileInteractionListener ,IActionModeCtr{
 
     private FileListCursorAdapter mAdapter;
     private FileViewInteractionHub mFileViewInteractionHub;
@@ -89,9 +88,6 @@ public class MenoryInfoFileListActivity extends Activity implements
         mFileIconHelper = new FileIconHelper(mContext);
         mAdapter = new FileListCursorAdapter(mContext, null,
                 mFileViewInteractionHub, mFileIconHelper);
-        mFavoriteList = new FavoriteList(mContext,
-                (ListView) findViewById(R.id.favorite_list), this,
-                mFileIconHelper);
         ListView fileListView = (ListView) findViewById(R.id.file_path_list);
         fileListView.setAdapter(mAdapter);
 
@@ -313,9 +309,6 @@ public class MenoryInfoFileListActivity extends Activity implements
 
     @Override
     public boolean onRefreshFileList(String path, final FileSortHelper sort) {
-        // add by droi heqianqian for refresh favoritelist
-        mFavoriteList.initList();
-        // end
         final FileCategory curCategory = mFileCagetoryHelper.getCurCategory();
         if (curCategory == FileCategory.All) {
             return false;
@@ -604,10 +597,6 @@ public class MenoryInfoFileListActivity extends Activity implements
         }
     }
 
-    @Override
-    public void onFavoriteDatabaseChanged() {
-
-    }
 
     @Override
     public void onResume() {

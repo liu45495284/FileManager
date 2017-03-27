@@ -14,6 +14,7 @@ import com.freeme.filemanager.model.GlobalConsts;
 import com.freeme.filemanager.util.PullParseXML;
 import com.freeme.filemanager.util.StorageHelper;
 import com.freeme.filemanager.view.FileCategoryFragment.ScannerReceiver;
+import com.squareup.leakcanary.LeakCanary;
 
 import android.annotation.SuppressLint;
 import android.app.Application;
@@ -22,6 +23,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.AssetManager;
+import android.os.Build;
 import android.os.Handler;
 import android.os.StrictMode;
 import android.util.Log;
@@ -54,7 +56,6 @@ public class FileManagerApplication extends Application {
             switch (msg.what) {
             case MSG_SDCARD_CHANGED:
                 int flag = msg.arg1;
-                Log.i("liuhaoran1", "flag = " + flag );
                 for (int i = 0; i < listeners.size(); i++) {
                     SDCardChangeListener listener = listeners.get(i);
                     if (listener != null) {
@@ -75,9 +76,11 @@ public class FileManagerApplication extends Application {
         DroiAnalytics.initialize(this);
 
         //*/ freeme.liuhaoran , 20170323. for android N about "android.os.FileUriExposedException"
-        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
-        StrictMode.setVmPolicy(builder.build());
-        builder.detectFileUriExposure();
+        if (Build.VERSION.SDK_INT >= 23) {
+            StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+            StrictMode.setVmPolicy(builder.build());
+            builder.detectFileUriExposure();
+        }
         //*/
 
         new Thread(new Runnable() {
