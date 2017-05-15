@@ -57,12 +57,15 @@ public class CmdLIST extends CmdAbstractListing implements Runnable {
             File fileToList = null;
             if(param.equals("")) {
                 fileToList = sessionThread.getWorkingDir();
+                Log.i("ftpliu" , fileToList.getAbsolutePath()+"   1");
             } else {
                 if(param.contains("*")) {
                     errString = "550 LIST does not support wildcards\r\n";
                     break mainblock;
                 }
                 fileToList = new File(sessionThread.getWorkingDir(), param);
+                Log.i("ftpliu" , fileToList.getAbsolutePath()+"   2");
+                Log.i("ftpliu" , fileToList.getAbsolutePath());
                 if(violatesChroot(fileToList)) {
                     errString = "450 Listing target violates chroot\r\n";
                     break mainblock;
@@ -77,7 +80,7 @@ public class CmdLIST extends CmdAbstractListing implements Runnable {
                 }
                 listing = response.toString();
             } else {
-                listing = makeLsString(fileToList);
+                listing = makeLsString(fileToList,null);
                 if(listing == null) {
                     errString = "450 Couldn't list that file\r\n";
                     break mainblock;
@@ -87,8 +90,8 @@ public class CmdLIST extends CmdAbstractListing implements Runnable {
             if(errString != null) {
                 break mainblock;
             }
-        }   
-        
+        }
+
         if(errString != null) {
             sessionThread.writeString(errString);
             myLog.l(Log.DEBUG, "LIST failed with: " + errString);
@@ -101,7 +104,7 @@ public class CmdLIST extends CmdAbstractListing implements Runnable {
     
     // Generates a line of a directory listing in the traditional /bin/ls
     // format.
-    protected String makeLsString(File file) {
+    protected String makeLsString(File file,String name) {
         StringBuilder response = new StringBuilder();
         
         if(!file.exists()) {
@@ -112,8 +115,11 @@ public class CmdLIST extends CmdAbstractListing implements Runnable {
         // See Daniel Bernstein's explanation of /bin/ls format at:
         // http://cr.yp.to/ftp/list/binls.html
         // This stuff is almost entirely based on his recommendations.
-        
         String lastNamePart = file.getName();
+        if(name != null){
+            lastNamePart = name;
+        }
+
         // Many clients can't handle files containing these symbols
         if(lastNamePart.contains("*") || 
            lastNamePart.contains("/"))

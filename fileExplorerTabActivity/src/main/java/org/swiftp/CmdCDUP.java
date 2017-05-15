@@ -50,6 +50,12 @@ public class CmdCDUP extends FtpCmd implements Runnable {
 
             try {
                 newDir = newDir.getCanonicalFile();
+                String path = newDir.getAbsolutePath().toString();
+                if(path.contains("sdcard")){
+                    File[] files = sessionThread.getRootFiles();
+                    char index = path.charAt(15);
+                    newDir = files[Integer.valueOf(index+"")];
+                }
                 if(!newDir.isDirectory()) {
                     errString = "550 Can't CWD to invalid directory\r\n";
                     break mainBlock;

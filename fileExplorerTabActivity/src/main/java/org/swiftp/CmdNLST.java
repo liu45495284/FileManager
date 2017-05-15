@@ -79,7 +79,7 @@ public class CmdNLST extends CmdAbstractListing implements Runnable {
                 }
                 listing = response.toString();
             } else {
-                listing = makeLsString(fileToList);
+                listing = makeLsString(fileToList,null);
                 if(listing == null) {
                     errString = "450 Couldn't list that file\r\n";
                     break mainblock;
@@ -101,7 +101,7 @@ public class CmdNLST extends CmdAbstractListing implements Runnable {
         // have already been handled by sendListing, so we can just quit now.
     }
     
-    protected String makeLsString(File file) {
+    protected String makeLsString(File file,String name) {
         if(!file.exists()) {
             staticLog.l(Log.INFO, "makeLsString had nonexistent file");
             return null;

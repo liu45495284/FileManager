@@ -43,7 +43,7 @@
         android:resizeableActivity="false">
         <activity
             android:name="com.freeme.filemanager.FileExplorerTabActivity"
-            android:configChanges="screenSize|keyboardHidden"
+            android:configChanges="screenSize|keyboardHidden|locale"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" 
             >

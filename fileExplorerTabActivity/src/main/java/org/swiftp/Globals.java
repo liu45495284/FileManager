@@ -29,6 +29,15 @@ public class Globals {
     private static File chrootDir = new File(Defaults.chrootDir);
     private static ProxyConnector proxyConnector = null;
     private static String username = null;
+    private static File[] baseDirs = null;
+
+    public static File[] getBaseDirs() {
+        return baseDirs;
+    }
+
+    public static void setBaseDirs(File[] baseDirs) {
+        Globals.baseDirs = baseDirs;
+    }
 
     public static ProxyConnector getProxyConnector() {
         if(proxyConnector != null) {

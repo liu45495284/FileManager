@@ -30,6 +30,9 @@ import java.io.File;
 
 import android.util.Log;
 
+import com.freeme.filemanager.FileManagerApplication;
+import com.freeme.filemanager.util.DroiSDCardManager;
+
 public abstract class CmdAbstractListing extends FtpCmd {
     protected static MyLog staticLog = new MyLog(CmdLIST.class.toString());
     
@@ -37,7 +40,7 @@ public abstract class CmdAbstractListing extends FtpCmd {
         super(sessionThread, CmdAbstractListing.class.toString());
     }
     
-    abstract String makeLsString(File file);
+    abstract String makeLsString(File file,String showname);
     
     // Creates a directory listing by finding the contents of the directory,
     // calling makeLsString on each file, and concatenating the results.
@@ -45,22 +48,43 @@ public abstract class CmdAbstractListing extends FtpCmd {
     // called by CmdLIST or CmdNLST, since they each override makeLsString
     // in a different way.
     public String listDirectory(StringBuilder response, File dir) {
+        boolean isFirst = false;
         if(!dir.isDirectory()) {
             return "500 Internal error, listDirectory on non-directory\r\n";
         }
         myLog.l(Log.DEBUG, "Listing directory: " + dir.toString());
         
         // Get a listing of all files and directories in the path
-        File[] entries = dir.listFiles();
+        File[] entries;
+//        File[] entries = new File[]{St};
+
+        if(sessionThread.getRootFiles() == null){
+            isFirst = true;
+            entries = DroiSDCardManager.getSDCardStoragePath(FileManagerApplication.instance);
+            sessionThread.setRootFiles(entries);
+        }else{
+            entries = dir.listFiles();
+        }
         if(entries == null) {
             return "500 Couldn't list directory. Check config and mount status.\r\n";
         }
+
+
         myLog.l(Log.DEBUG, "Dir len " + entries.length);
+        int i = 0;
         for(File entry : entries) {
-            String curLine = makeLsString(entry);
+            Log.i("liuhaoran" , "ftppath" + entry.getPath());
+            String curLine;
+            if(isFirst){
+                curLine = makeLsString(entry,"sdcard"+i);
+            }else{
+                curLine = makeLsString(entry,null);
+            }
+
             if(curLine != null) {
                 response.append(curLine);
             }
+            i++;
         }
         return null;
     }

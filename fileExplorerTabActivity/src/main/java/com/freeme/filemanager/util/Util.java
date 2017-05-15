@@ -225,7 +225,7 @@ public class Util {
             }
         }
         Log.i("liuhaoran1", "mountVolumeList =" + mountVolumeList.size());
-//      Log.i("liuhaoran1", "storageVolumes[0] =" + storageVolumes[0] );
+      Log.i("liuhaoran1", "storageVolumes[0] =" + storageVolumes[0] );
 //      Log.i("liuhaoran1", "storageVolumes[1] =" + storageVolumes[1] );
 //      Log.i("liuhaoran1", "storageVolumes[2] =" + storageVolumes[2] );
       Log.i("liuhaoran1", "defaultPath =" + defaultPath );

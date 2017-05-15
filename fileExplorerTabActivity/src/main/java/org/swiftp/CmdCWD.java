@@ -26,7 +26,7 @@ import android.util.Log;
 
 public class CmdCWD extends FtpCmd implements Runnable {
     protected String input;
-    
+
     public CmdCWD(SessionThread sessionThread, String input) {
         super(sessionThread, CmdCWD.class.toString());
         this.input = input;
@@ -50,6 +50,15 @@ public class CmdCWD extends FtpCmd implements Runnable {
 
             try {
                 newDir = newDir.getCanonicalFile();
+                String path = newDir.getAbsolutePath().toString();
+                if(path.contains("sdcard")){
+                    File[] files = sessionThread.getRootFiles();
+                    char index = path.charAt(15);
+                    String newPath = path.replace("/storage/sdcard" + index,files[Integer.valueOf(index+"")].getAbsolutePath().toString());
+                    newDir = new File(newPath);
+                }
+
+                myLog.l(Log.INFO, "newDir  " + newDir.getAbsolutePath().toString());
                 if(!newDir.isDirectory()) {
                     sessionThread.writeString("550 Can't CWD to invalid directory\r\n");
                 } else if(newDir.canRead()) {

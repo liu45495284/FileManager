@@ -14,7 +14,6 @@ import com.freeme.filemanager.model.GlobalConsts;
 import com.freeme.filemanager.util.PullParseXML;
 import com.freeme.filemanager.util.StorageHelper;
 import com.freeme.filemanager.view.FileCategoryFragment.ScannerReceiver;
-import com.squareup.leakcanary.LeakCanary;
 
 import android.annotation.SuppressLint;
 import android.app.Application;
@@ -50,6 +49,8 @@ public class FileManagerApplication extends Application {
     private static final String TAG = "Config";
     //*/
 
+    public static FileManagerApplication instance  = null;
+
     @SuppressLint("HandlerLeak")
     Handler mHandler = new Handler() {
         public void handleMessage(android.os.Message msg) {
@@ -72,6 +73,7 @@ public class FileManagerApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        instance = this;
         Core.initialize(this);
         DroiAnalytics.initialize(this);
 

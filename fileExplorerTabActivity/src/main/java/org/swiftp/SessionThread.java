@@ -62,6 +62,16 @@ public class SessionThread extends Thread {
     
     public enum Source {LOCAL, PROXY}; // where did this connection come from?
     public static int MAX_AUTH_FAILS = 3;
+
+    public File[] getRootFiles() {
+        return rootFiles;
+    }
+
+    public void setRootFiles(File[] rootFiles) {
+        this.rootFiles = rootFiles;
+    }
+
+    private File[] rootFiles = null;
     /**
      * Used when we get a PORT command to open up an outgoing socket.
      * 

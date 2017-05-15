@@ -923,7 +923,6 @@ public class FileExplorerTabActivity extends BaseActivity implements IActionMode
         int size = perList.size();
         if (size > 0) {
             String[] permisGroup = (String[]) perList.toArray(new String[size]);
-            Log.i("liuhaoran" , Log.getStackTraceString(new NullPointerException("li")));
             requestPermissions(permisGroup, CHECK_PERMISSIONS_REQUEST);
 
         }
